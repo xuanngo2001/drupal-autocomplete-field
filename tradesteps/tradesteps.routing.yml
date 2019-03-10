@@ -1,0 +1,17 @@
+# The routing for your autocomplete query.
+tradesteps.autocomplete_field:
+  path: '/autocomplete_field'
+  defaults:
+    _controller: 'Drupal\tradesteps\Controller\Autocomplete::handleAutocomplete'
+    _format: json
+  requirements:
+    _permission: 'access content'
+
+# For completness, I put the normal form routing here too.
+tradesteps.autocomplete_form:
+  path: '/autocomplete_form'
+  defaults:
+    _form: 'Drupal\tradesteps\Form\MyFormAutocomplete'
+    _title: 'Form using autocomplete field'
+  requirements:
+    _permission: 'access content'
