@@ -21,7 +21,7 @@ class Autocomplete extends ControllerBase {
                                     ->condition('status', 1)
                                     ->condition('title', '%'.db_like($string).'%', 'LIKE');
             $nids = $query->execute();
-            $result = entity_load_multiple('node', $nids);
+            $result = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
             
             // Format results found as json.
             foreach ($result as $row) {
